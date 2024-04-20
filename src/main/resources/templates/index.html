@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
 <h4>Add new item to wishlist: </h4>
 <form action="/add" method="post">
-<input type="text" id="searchPromptInput" name="url" placeholder="paste item's URL">
-  <input type="submit" value="Add!">
-    <input type="submit" value="Export as Excel" formaction="/excel">
+<input type="text" id="searchPromptInput" name="url" placeholder="Paste item's URL" class="input-text">
+  <input type="submit" value="Add!" class="button">
+    <input type="submit" value="Export as Excel" formaction="/excel" class="button">
 </form>
 
 <p th:text="${list}"> Welcomq!</p>
@@ -36,10 +37,10 @@
         <td><span th:text="${wish.price}"> </span></td>
         <td><span th:text="${wish.getOldPrice() != null} ? ${wish.getOldPrice()} : '-'"> </span></td>
         <td><a th:href="${wish.url}"><span th:text="${wish.url}"> </span></a></td>
-        <td><form action="/delete" method="post"><button type="submit" th:value="${wish.id}" name="idToDelete">Delete</button></form> </td>
+        <td><form action="/delete" method="post"><button type="submit" th:value="${wish.id}" name="idToDelete" class="button">Delete</button></form> </td>
     </tr>
     </tbody>
 </table>
-
+</div>
 </body>
 </html>

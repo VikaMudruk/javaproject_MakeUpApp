@@ -1,4 +1,66 @@
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
+/* Table style */
+.container{
+
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+  background: linear-gradient(to right, rgba(255, 181, 218, 0.6), rgba(255, 181, 218, 0.4));
+  }
+body{
+background: linear-gradient(to left, rgba(135, 76, 204, 0.6), rgba(255, 255, 255, 0.5));
 }
+table {
+  border-radius: 10px; /* Soft corners for the table */
+  overflow: hidden; /* Ensures content doesn't bleed outside the table */
+  background: linear-gradient(to right, rgba(220, 220, 220, 0.8), rgba(255, 255, 255, 0.1)); /* Creates a subtle horizontal gradient */
+}
+
+/* Table cell style */
+
+td {
+  padding: 15px; /* Padding for cells */
+  border: 1px solid rgba(200, 200, 200, 0.5); /* Light border for cells */
+  border-radius: 5px; /* Soft corners for table cells */
+  text-align: left; /* Aligns text to the left by default */
+}
+
+/* Table header row style */
+
+th {
+  background: linear-gradient(to right, rgba(0, 0, 255, 0.4), rgba(0, 0, 255, 0.2)); /* Gradient for the header row */
+  color: #fff; /* White text color for the header row */
+  padding: 15px; /* Padding for cells */
+    border: 1px solid rgba(200, 200, 200, 0.5); /* Light border for cells */
+    border-radius: 5px; /* Soft corners for table cells */
+    text-align: left; /* Aligns text to the left by default */
+}
+
+.input-text {
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+  }
+ .button{
+   position: relative;
+   display: inline-block;
+   padding: 10px 20px;
+   color: #874CCC;
+   font-size: 16px;
+   text-decoration: none;
+   text-transform: uppercase;
+   overflow: hidden;
+   transition: .5s;
+   letter-spacing: 4px;
+   background: transparent;
+ }
