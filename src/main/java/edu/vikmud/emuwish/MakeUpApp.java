@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @ComponentScan({"edu.vikmud.emuwish"})
 @EntityScan("edu.vikmud.emuwish")
 @RestController
-public class DndudbApplication {
+public class makeupApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DndudbApplication.class, args);
+		SpringApplication.run(makeupApplication.class, args);
 	}
 
 
