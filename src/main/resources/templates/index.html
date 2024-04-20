@@ -1,0 +1,44 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wish list</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h4>Add new item to wishlist: </h4>
+<form action="/add" method="post">
+<input type="text" id="searchPromptInput" name="url" placeholder="paste item's URL">
+  <input type="submit" value="Add!">
+</form>
+
+<p th:text="${list}"> Welcomq!</p>
+
+<table>
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> Name </th>
+        <th> Price </th>
+        <th> Old Price </th>
+        <th> URL </th>
+        <th> DELETE </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${wishlist.empty}">
+        <td colspan="6"> No Books Available </td>
+    </tr>
+    <tr th:each="wish : ${wishlist}">
+        <td><span th:text="${wish.id}"> </span></td>
+        <td><span th:text="${wish.name}"> </span></td>
+        <td><span th:text="${wish.price}"> </span></td>
+        <td><span th:text="${wish.getOldPrice() != null} ? ${wish.getOldPrice()} : '-'"> </span></td>
+        <td><a th:href="${wish.url}"><span th:text="${wish.url}"> </span></a></td>
+        <td><form action="/delete" method="post"><button type="submit" th:value="${wish.id}" name="idToDelete">Delete</button></form> </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
