@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Developed by Mudrik Viktoria -->
+<!-- Developed by Mudruk Viktoria -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -9,11 +9,11 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>edu.yaros</groupId>
-	<artifactId>dndudb</artifactId>
+	<groupId>edu.vikmud</groupId>
+	<artifactId>MakeUpApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>emuwish</name>
-	<description>Eva-makeup wishlist</description>
+	<description>makeup wishlist</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
