@@ -2,12 +2,18 @@ package edu.vikmud.emuwish.controllers;
 
 import com.google.common.collect.Lists;
 import edu.vikmud.emuwish.models.Item;
+import edu.vikmud.emuwish.services.ExcelService;
 import edu.vikmud.emuwish.services.Parser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -15,13 +21,15 @@ public class DataController {
 
     @Autowired
     private ItemRepository itemRepository;
+    @Autowired
+    private ExcelService excelService;
 
     public void generalLayout(Model model){
-        List<Item> wishlist = selectItem();
+        List<Item> wishlist = selectItems();
 
         model.addAttribute("wishlist", wishlist);
     }
-    public List<Item> selectItem() {
+    public List<Item> selectItems() {
         return Lists.newArrayList(itemRepository.findAll());
     }
 
@@ -50,5 +58,22 @@ public class DataController {
         System.out.println(idToDelete);
         generalLayout(model);
         return "index";
+    }
+
+    @PostMapping("/excel")
+    public ResponseEntity<byte[]> excelify(Model model){
+
+        try {
+            List<Item> wishItems = selectItems();
+            byte[] excel = excelService.createExcelFile(wishItems);
+            //byte[] createdFile = excelService.getExcelFile();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+            headers.setContentDispositionFormData("attachment", "wishlist.xlsx");
+            return ResponseEntity.ok().headers(headers).body(excel);
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+
     }
 }
